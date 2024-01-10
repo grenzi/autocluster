@@ -74,7 +74,7 @@ class algorithms(object):
         _name = "KMeans"
         _model = cluster.KMeans
         _params = [
-            UniformIntegerHyperparameter("n_clusters", 1, 80, default_value=5)
+            UniformIntegerHyperparameter("n_clusters", 1, 30, default_value=5)
             # UniformIntegerHyperparameter("random_state", 0, 9, default_value=0)
         ]
         _params_names = set([p.name for p in _params]) 
@@ -284,7 +284,7 @@ class algorithms(object):
         _model = decomposition.IncrementalPCA
         _params = [
             OrdinalHyperparameter("n_components", sequence=list(range(2, 4)), default_value=2),
-            CategoricalHyperparameter("whiten", [True, False], default_value=False),
+            CategoricalHyperparameter("whiten", [True,False], default_value=True),
             UniformIntegerHyperparameter("batch_size", 10, 1000, default_value=100)
         ]
         _params_names = set([p.name for p in _params]) 
@@ -299,7 +299,7 @@ class algorithms(object):
             OrdinalHyperparameter("n_components", sequence=list(range(2, 4)), default_value=2),
             CategoricalHyperparameter("algorithm", ['parallel', 'deflation'], default_value='parallel'),
             CategoricalHyperparameter("fun", ['logcosh', 'exp','cube'], default_value='logcosh'),
-            CategoricalHyperparameter("whiten", [True,False], default_value=True),
+            CategoricalHyperparameter("whiten", ["arbitrary-variance", "unit-variance", False], default_value=False),            
             # OrdinalHyperparameter("random_state", sequence=list(range(10)), default_value=1)
         ]
         _params_names = set([p.name for p in _params])

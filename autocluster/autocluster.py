@@ -177,7 +177,7 @@ class AutoCluster(object):
             "cutoff_time": cutoff_time,
             "cs": cs,
             "deterministic": "true",
-            "output_dir": LogUtils.create_new_directory('{}/smac'.format(self.log_dir)),
+            "output_dir": "/home/gage/autocluster/log", #LogUtils.create_new_directory('{}/smac'.format(self.log_dir)),
             "abort_on_first_run_crash": False,
         }
         scenario = Scenario(scenario_params)    
